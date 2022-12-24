@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api/products/",
     createProxyMiddleware({
-      target: "http://localhost:5000/",
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -12,7 +12,7 @@ module.exports = function (app) {
   app.use(
     "/api/users/",
     createProxyMiddleware({
-      target: "http://localhost:5000/",
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -20,7 +20,7 @@ module.exports = function (app) {
   app.use(
     "/api/orders/",
     createProxyMiddleware({
-      target: "http://localhost:5000/",
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -28,7 +28,7 @@ module.exports = function (app) {
   app.use(
     "/api/password/",
     createProxyMiddleware({
-      target: "http://localhost:5000/",
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -36,7 +36,7 @@ module.exports = function (app) {
   app.use(
     "/api/keys/paypal",
     createProxyMiddleware({
-      target: "http://localhost:5000/",
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
