@@ -1,0 +1,145 @@
+.Navbar {
+  width: 100%;
+  height: 70px;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fca61f;
+  border-radius: 3px;
+}
+
+.Navbar .navLeft span {
+  max-height: 80px;
+}
+
+.Navbar .navLeft span .nav-link {
+  color: #fca61f;
+  font-size: 21px;
+  margin-left: 1rem;
+}
+
+.Navbar .navRight .links {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-height: 80px;
+}
+
+.Navbar .navRight .links > div {
+  margin: 0 5px 0 5px;
+}
+
+.Navbar .navRight .cart span {
+  color: #fca61f;
+}
+
+.Navbar .navRight > div {
+  margin-right: 1rem;
+}
+
+.dropdowwn {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  display: none;
+  max-width: 12rem;
+  z-index: 1;
+  list-style-type: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+ul > .navbar-list {
+  background-color: #fca61f;
+  border-radius: 0.3rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  font-weight: bold;
+}
+
+/* toggle */
+.Navbar .navRight .toggle {
+  display: none;
+  font-size: 21px;
+  margin-right: 15px;
+}
+
+.Navbar .navRight #hidden {
+  display: flex;
+}
+
+.Navbar .navRight .toggle:hover {
+  cursor: pointer;
+}
+
+ul > li span {
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .Navbar .navLeft span .nav-link {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 800px) {
+  .Navbar .navLeft span .nav-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Navbar .navLeft span .nav-link {
+    font-size: 10px;
+  }
+  .Navbar .navRight .toggle {
+    display: flex;
+  }
+
+  .Navbar .navRight .links {
+    display: none;
+  }
+  .Navbar .navRight #hidden {
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    height: auto;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    z-index: 1;
+    transition: all 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Navbar .navRight #hidden > div {
+    margin: 0.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .Navbar .navLeft span .nav-link {
+    font-size: 8px;
+  }
+
+  .Navbar .toggle {
+    display: flex;
+  }
+
+  .Navbar .navRight .links {
+    display: none;
+  }
+}

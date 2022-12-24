@@ -1,0 +1,109 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(250px, auto);
+  /* margin: 0 auto; */
+  /* padding: 2rem 0; */
+}
+
+.container .cardy {
+  position: relative;
+  width: 16rem;
+  height: 22rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 25px rgba(148, 32, 32, 0.02);
+  backdrop-filter: blur(15px);
+}
+
+.container .cardy .imageBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  transition: 1s ease-in-out;
+}
+
+.container .cardy:hover .imageBox {
+  transform: translateY(-100px);
+}
+.container .cardy .imageBox img {
+  max-width: 100%;
+  margin: 0 0 20px;
+  transition: 1s ease-in-out;
+}
+
+.container .cardy:hover .imageBox img {
+  transform: translate(-15px, -30px) rotate(-20deg) scale(0.4);
+}
+
+.container .cardy .imageBox h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.container .cardy .content {
+  position: absolute;
+  bottom: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.container .cardy:hover .content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50px);
+}
+
+.container .cardy .content .rating,
+.container .cardy .content .price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.container .cardy .content .price {
+  color: #fff;
+  font-size: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container .cardy {
+    position: relative;
+    width: 13rem;
+    height: 19rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+  .container .cardy {
+    position: relative;
+    width: 13rem;
+    height: 19rem;
+  }
+}

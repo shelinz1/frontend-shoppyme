@@ -1,38 +1,187 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.error-message {
+  width: 50% auto;
+  margin: 1rem auto;
+  color: white;
   text-align: center;
+  font-weight: bold;
+  background-color: #d02727;
+  padding: 0.7rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.no-orders {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 2.5rem;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.footer > div {
+  width: 10rem;
+  height: 10rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.payment-option {
+  display: flex;
+  padding: 1rem;
+}
+
+.orderInfo {
+  background-color: lightgray;
+  width: 100%;
+  height: 15rem auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.content {
+  flex-wrap: wrap;
+}
+
+.orderDetails .price-info {
+  margin-top: 2rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  list-style-type: none;
+}
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
+.contact {
+  background-color: rgb(26, 29, 29);
   color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  align-items: center;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.i-social-icons {
+  display: flex;
+  gap: 0rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.i-social-icons > * {
+  transform: scale(0.3);
+}
+.i-social-icons > *:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .orderInfo {
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+  .orderInfo > div {
+    margin-bottom: 1rem;
   }
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .orderInfo {
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orderInfo > div {
+    margin-bottom: 1rem;
+  }
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .orderInfo {
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .orderInfo > div {
+    margin-bottom: 2rem;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-info-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-info-admin > div {
+  padding: 1rem;
 }
