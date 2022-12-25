@@ -6,7 +6,7 @@ module.exports = function (app) {
   app.use(
     "/api/products/",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_ENDPOINT}`,
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.use(
     "/api/users/",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_ENDPOINT}`,
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -22,7 +22,7 @@ module.exports = function (app) {
   app.use(
     "/api/orders/",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_ENDPOINT}`,
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -30,7 +30,7 @@ module.exports = function (app) {
   app.use(
     "/api/password/",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_ENDPOINT}`,
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
@@ -38,7 +38,7 @@ module.exports = function (app) {
   app.use(
     "/api/keys/paypal",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_ENDPOINT}`,
+      target: "https://shoppyme-shadrach-api.onrender.com/",
       changeOrigin: true,
     })
   );
