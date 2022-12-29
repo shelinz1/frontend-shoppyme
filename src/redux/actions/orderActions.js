@@ -41,7 +41,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      "/api/orders",
+      "https://shoppyme-shadrach-api.onrender.com/api/orders",
       order,
       config
     );
@@ -77,7 +77,7 @@ export const orderDetails = (orderId) => async (dispatch, getState) => {
     };
 
     const response = await axios.get(
-      `/api/orders/${orderId}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${orderId}`,
       config
     );
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: response.data });
@@ -110,7 +110,7 @@ export const myOrderList = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      "/api/orders/me",
+      "https://shoppyme-shadrach-api.onrender.com/api/orders/me",
       config
     );
 
@@ -143,7 +143,7 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `/api/orders/${id}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${id}`,
       config
     );
 
@@ -177,7 +177,7 @@ export const ordersList =
         },
       };
       const { data } = await axios.get(
-        `/api/orders/all/orders/?searchorder=${searchorder}`,
+        `https://shoppyme-shadrach-api.onrender.com/api/orders/all/orders/?searchorder=${searchorder}`,
         config
       );
 
@@ -213,7 +213,7 @@ export const orderDetail = (orderId) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `/api/orders/${orderId}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${orderId}`,
       config
     );
     console.log(data);
@@ -246,7 +246,7 @@ export const orderDeliver = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver`,
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${order._id}/deliver`,
       {},
       config
     );

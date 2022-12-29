@@ -38,7 +38,7 @@ export const productLists =
     });
     try {
       const { data } = await axios.get(
-        `/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
+        `https://shoppyme-shadrach-api.onrender.com/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
       );
 
       dispatch({
@@ -61,7 +61,7 @@ export const productDetails = (id) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAIL_REQUEST });
   try {
     const response = await axios.get(
-      `/api/products/${id}`
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${id}`
     );
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
@@ -96,7 +96,7 @@ export const productDetailsReview =
       };
 
       await axios.post(
-        `/api/products/${productId}/review`,
+        `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}/review`,
         review,
         config
       );
@@ -132,7 +132,7 @@ export const productsList =
         },
       };
       const { data } = await axios.get(
-        `/api/products/all/products?searchProduct=${searchProduct}`,
+        `https://shoppyme-shadrach-api.onrender.com/api/products/all/products?searchProduct=${searchProduct}`,
         config
       );
 
@@ -167,7 +167,7 @@ export const productDelete = (productId) => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `/api/products/${productId}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`,
       config
     );
 
@@ -203,7 +203,7 @@ export const productAdd =
       };
 
       const { data } = await axios.post(
-        `/api/products/add`,
+        `https://shoppyme-shadrach-api.onrender.com/api/products/add`,
         { name, price, countInStock, category, description, image },
         config
       );
@@ -228,7 +228,7 @@ export const productEdit = (productId) => async (dispatch, getState) => {
     dispatch({ type: ADMIN_PRODUCT_EDIT_REQUEST });
 
     const { data } = await axios.get(
-      `/api/products/${productId}`
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`
     );
 
     dispatch({
@@ -262,7 +262,7 @@ export const productUpdate = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/${product._id}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${product._id}`,
       product,
       config
     );
@@ -302,7 +302,7 @@ export const productDetail = (productId) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `/api/products/${productId}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`,
       config
     );
 

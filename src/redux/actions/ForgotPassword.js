@@ -18,7 +18,7 @@ export const forgotPasswordUpdate = (email) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      "/api/password/forgotpassword",
+      "https://shoppyme-shadrach-api.onrender.com/api/password/forgotpassword",
       {
         email,
       }
