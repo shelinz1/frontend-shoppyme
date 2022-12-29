@@ -7,6 +7,7 @@ module.exports = function (app) {
     "/api/products/",
     createProxyMiddleware({
       target: "https://shoppyme-shadrach-api.onrender.com",
+      
       changeOrigin: true,
     })
   );

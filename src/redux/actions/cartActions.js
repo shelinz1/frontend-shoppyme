@@ -9,7 +9,9 @@ import axios from "axios";
 //ADD CARTS
 export const addCartItem =
   (productId, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/products/${productId}`);
+    const { data } = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`
+    );
 
     dispatch({
       type: ADD_CART_ITEM,

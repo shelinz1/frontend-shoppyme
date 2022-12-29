@@ -12,7 +12,9 @@ export const resetInfo = (token) => async (dispatch) => {
   dispatch({ type: GET_REQUEST_PASSWORD_REQUEST });
 
   try {
-    const { data } = await axios.get(`/api/password/reset/${token}`);
+    const { data } = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/password/reset/${token}`
+    );
     dispatch({ type: GET_REQUEST_PASSWORD_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -29,9 +31,12 @@ export const updatePassword = (token, password) => async (dispatch) => {
   dispatch({ type: UPDATE_PASSWORD_REQUEST, payload: password });
 
   try {
-    const { data } = await axios.post(`/api/password/reset/${token}`, {
-      password,
-    });
+    const { data } = await axios.post(
+      `https://shoppyme-shadrach-api.onrender.com/api/password/reset/${token}`,
+      {
+        password,
+      }
+    );
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data });
     
   } catch (error) {

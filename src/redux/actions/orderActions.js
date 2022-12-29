@@ -40,7 +40,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post("/api/orders", order, config);
+    const { data } = await axios.post(
+      "https://shoppyme-shadrach-api.onrender.com/api/orders",
+      order,
+      config
+    );
 
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data.order });
     dispatch({ type: CLEAR_CART_ITEM });
@@ -72,7 +76,10 @@ export const orderDetails = (orderId) => async (dispatch, getState) => {
       },
     };
 
-    const response = await axios.get(`/api/orders/${orderId}`, config);
+    const response = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${orderId}`,
+      config
+    );
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: response.data });
     // console.log(response.data)
   } catch (error) {
@@ -102,7 +109,10 @@ export const myOrderList = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get("/api/orders/me", config);
+    const { data } = await axios.get(
+      "https://shoppyme-shadrach-api.onrender.com/api/orders/me",
+      config
+    );
 
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -132,7 +142,10 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/orders/${id}`, config);
+    const { data } = await axios.delete(
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${id}`,
+      config
+    );
 
     dispatch({ type: ORDER_DELETE_SUCCESS, payload: data });
   } catch (error) {
@@ -164,7 +177,7 @@ export const ordersList =
         },
       };
       const { data } = await axios.get(
-        `/api/orders/all/orders/?searchorder=${searchorder}`,
+        `https://shoppyme-shadrach-api.onrender.com/api/orders/all/orders/?searchorder=${searchorder}`,
         config
       );
 
@@ -199,7 +212,10 @@ export const orderDetail = (orderId) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/orders/${orderId}`, config);
+    const { data } = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${orderId}`,
+      config
+    );
     console.log(data);
     dispatch({ type: ADMIN_ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -230,7 +246,7 @@ export const orderDeliver = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver`,
+      `https://shoppyme-shadrach-api.onrender.com/api/orders/${order._id}/deliver`,
       {},
       config
     );

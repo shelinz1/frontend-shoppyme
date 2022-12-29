@@ -17,9 +17,12 @@ export const forgotPasswordUpdate = (email) => async (dispatch) => {
   dispatch({ type: FORGOT_PASSWORD_REQUEST, payload: email });
 
   try {
-    const { data } = await axios.post("/api/password/forgotpassword", {
-      email,
-    });
+    const { data } = await axios.post(
+      "https://shoppyme-shadrach-api.onrender.com/api/password/forgotpassword",
+      {
+        email,
+      }
+    );
 
     console.log(data);
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data });

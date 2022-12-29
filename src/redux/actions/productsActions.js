@@ -38,7 +38,7 @@ export const productLists =
     });
     try {
       const { data } = await axios.get(
-        `/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
+        `https://shoppyme-shadrach-api.onrender.com/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
       );
 
       dispatch({
@@ -60,7 +60,9 @@ export const productLists =
 export const productDetails = (id) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAIL_REQUEST });
   try {
-    const response = await axios.get(`/api/products/${id}`);
+    const response = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${id}`
+    );
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
       payload: response.data,
@@ -93,7 +95,11 @@ export const productDetailsReview =
         },
       };
 
-      await axios.post(`/api/products/${productId}/review`, review, config);
+      await axios.post(
+        `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}/review`,
+        review,
+        config
+      );
 
       dispatch({ type: PRODUCT_CREATE_REVIEW_SUCCESS });
     } catch (error) {
@@ -126,7 +132,7 @@ export const productsList =
         },
       };
       const { data } = await axios.get(
-        `/api/products/all/products?searchProduct=${searchProduct}`,
+        `https://shoppyme-shadrach-api.onrender.com/api/products/all/products?searchProduct=${searchProduct}`,
         config
       );
 
@@ -160,7 +166,10 @@ export const productDelete = (productId) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/products/${productId}`, config);
+    await axios.delete(
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`,
+      config
+    );
 
     dispatch({
       type: ADMIN_PRODUCT_DELETE_SUCCESS,
@@ -194,7 +203,7 @@ export const productAdd =
       };
 
       const { data } = await axios.post(
-        `/api/products/add`,
+        `https://shoppyme-shadrach-api.onrender.com/api/products/add`,
         { name, price, countInStock, category, description, image },
         config
       );
@@ -218,7 +227,9 @@ export const productEdit = (productId) => async (dispatch, getState) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_EDIT_REQUEST });
 
-    const { data } = await axios.get(`/api/products/${productId}`);
+    const { data } = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`
+    );
 
     dispatch({
       type: ADMIN_PRODUCT_EDIT_SUCCESS,
@@ -251,7 +262,7 @@ export const productUpdate = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/${product._id}`,
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${product._id}`,
       product,
       config
     );
@@ -290,7 +301,10 @@ export const productDetail = (productId) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/products/${productId}`, config);
+    const { data } = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`,
+      config
+    );
 
     dispatch({
       type: ADMIN_PRODUCT_DETAIL_SUCCESS,

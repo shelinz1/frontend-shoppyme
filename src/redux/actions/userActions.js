@@ -23,11 +23,14 @@ import {
 export const userRegister = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
   try {
-    const { data } = await axios.post("/api/users/register", {
-      name,
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      "https://shoppyme-shadrach-api.onrender.com/api/users/register",
+      {
+        name,
+        email,
+        password,
+      }
+    );
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -47,7 +50,10 @@ export const userRegister = (name, email, password) => async (dispatch) => {
 export const userLogin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await axios.post("/api/users/login", { email, password });
+    const { data } = await axios.post(
+      "https://shoppyme-shadrach-api.onrender.com/api/users/login",
+      { email, password }
+    );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
@@ -87,7 +93,10 @@ export const userProfileDetails = (userId) => async (dispatch, getState) => {
       },
     };
 
-    const response = await axios.get(`/api/users/${userId}`, config);
+    const response = await axios.get(
+      `https://shoppyme-shadrach-api.onrender.com/api/users/${userId}`,
+      config
+    );
     dispatch({ type: USER_PROFILE_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({
@@ -123,7 +132,11 @@ export const userProfileUpdate = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/profile`, user, config);
+    const { data } = await axios.put(
+      `https://shoppyme-shadrach-api.onrender.com/api/users/profile`,
+      user,
+      config
+    );
 
     dispatch({ type: USER_PROFILE_UPDATE_SUCCESS, payload: data });
 
@@ -162,7 +175,7 @@ export const usersList =
       };
 
       const { data } = await axios.get(
-        `/api/users/?searchuser=${searchuser}`,
+        `https://shoppyme-shadrach-api.onrender.com/api/users/?searchuser=${searchuser}`,
         config
       );
       dispatch({ type: ADMIN_USERS_LIST_SUCCESS, payload: data });
