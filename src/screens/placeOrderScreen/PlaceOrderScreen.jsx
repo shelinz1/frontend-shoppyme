@@ -40,9 +40,9 @@ function PlaceOrderScreen() {
   cart.shippingPrice = calculatedDecimal(cart.productsPrice > 100 ? 0 : 10);
   // productsPrice > 100 ? calculatedDecimal(0) : calculatedDecimal(10);
 
-  taxPrice = calculatedDecimal(Number(0.15 * cart.productsPrice));
+  cart.taxPrice = calculatedDecimal(Number(0.15 * cart.productsPrice));
 
-  totalPrice =
+  cart.totalPrice =
     Number(cart.productsPrice) +
     Number(cart.shippingPrice) +
     Number(cart.taxPrice);
@@ -62,13 +62,13 @@ function PlaceOrderScreen() {
     e.preventDefault();
     dispatch(
       createOrder({
-        orderProducts:cart.cartItems,
-        shippingAddress:cart.shippingAddress,
-        paymentMethod:cart.paymentMethod,
-        productsPrice:cart.productsPrice,
-        shippingPrice:cart.shippingAddress,
-        taxPrice:cart.taxPrice,
-        totalPrice:cart.totalPrice,
+        orderProducts: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        productsPrice: cart.productsPrice,
+        shippingPrice: cart.shippingAddress,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
       })
     );
     navigate(`/order/${order._id}`);
@@ -108,10 +108,11 @@ function PlaceOrderScreen() {
             </h2>
             <p>
               <strong>Shipping</strong>:{" "}
-              <strong>{shippingAddress.country}</strong>
+              <strong>{cart.shippingAddress.country}</strong>
             </p>
             <p>
-              <strong>Payment Method</strong>: <strong>{paymentMethod}</strong>
+              <strong>Payment Method</strong>:{" "}
+              <strong>{cart.paymentMethod}</strong>
             </p>
           </div>
         </div>
@@ -139,7 +140,7 @@ function PlaceOrderScreen() {
 
       <div className="ui stackable grid orderDetails">
         <div className="ten wide column">
-          {cartItems.length === 0 ? (
+          {cart.cartItems.length === 0 ? (
             <div className="cart-empty">
               "cart is empty"
               <div
@@ -223,7 +224,7 @@ function PlaceOrderScreen() {
             type="button"
             className="ui button primary"
             onClick={placeOrderHandler}
-            disabled={cartItems.length === 0}
+            disabled={cart.cartItems.length === 0}
           >
             PLACE ORDER
           </button>
