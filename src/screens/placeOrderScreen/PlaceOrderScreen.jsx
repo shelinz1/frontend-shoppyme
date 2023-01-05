@@ -31,7 +31,7 @@ function PlaceOrderScreen() {
   } = cart;
 
   const calculatedDecimal = (number) =>
-    Math.round(number * 100 + Number * EPSILON) / 100;
+    Math.round(number * 100 + Number.EPSILON) / 100;
 
   productsPrice = calculatedDecimal(
     cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
