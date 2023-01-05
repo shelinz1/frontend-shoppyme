@@ -30,51 +30,45 @@ function PlaceOrderScreen() {
     totalPrice,
   } = cart;
 
-  const calculatedDecimal = (number) => {
-    return Math.round((number * 100) / 100).toFixed(2);
-  };
+  const calculatedDecimal = (number) =>
+    Math.round(number * 100 + Number * EPSILON) / 100;
 
-  cart.productsPrice = calculatedDecimal(
-    cartItems.reduce((total, value) => total + value.quantity * value.price, 0)
+  productsPrice = calculatedDecimal(
+    cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  cart.shippingPrice = calculatedDecimal(cart.productsPrice > 100 ? 0 : 10);
-  // cart.productsPrice > 100 ? calculatedDecimal(0) : calculatedDecimal(10);
+  shippingPrice = calculatedDecimal(productsPrice > 100 ? 0 : 10);
+  // productsPrice > 100 ? calculatedDecimal(0) : calculatedDecimal(10);
 
-  cart.taxPrice = calculatedDecimal(
-    Number(0.15 * cart.productsPrice).toFixed()
-  );
+  taxPrice = calculatedDecimal(Number(0.15 * productsPrice));
 
-  cart.totalPrice = (
-    Number(cart.productsPrice) +
-    Number(cart.shippingPrice) +
-    Number(cart.taxPrice)
-  ).toFixed(2);
+  totalPrice = Number(productsPrice) + Number(shippingPrice) + Number(taxPrice);
 
   const goShopping = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    if (success) {
-      navigate(`/order/${order._id}`);
-      dispatch({ type: CREATE_ORDER_RESET });
-    }
-  }, [success, dispatch, navigate, order]);
+  // useEffect(() => {
+  //   if (success) {
+  //     navigate(`/order/${order._id}`);
+  //     dispatch({ type: CREATE_ORDER_RESET });
+  //   }
+  // }, [success, dispatch, navigate, order]);
 
   const placeOrderHandler = (e) => {
     e.preventDefault();
     dispatch(
       createOrder({
-        orderProducts: cartItems,
-        shippingAddress,
-        paymentMethod,
-        productsPrice,
-        shippingPrice,
-        taxPrice,
-        totalPrice,
+        orderProducts:cart.cartItems,
+        shippingAddress:cart.shippingAddress,
+        paymentMethod:cart.paymentMethod,
+        productsPrice:cart.productsPrice,
+        shippingPrice:cart.shippingAddress,
+        taxPrice:cart.taxPrice,
+        totalPrice:cart.totalPrice,
       })
     );
+    navigate(`/order/${order._id}`);
   };
 
   return (
@@ -202,22 +196,22 @@ function PlaceOrderScreen() {
             <tbody>
               <tr>
                 <td>Products price</td>
-                <td>${productsPrice}</td>
+                <td>${productsPrice.toFixed(2)}</td>
               </tr>
               <tr>
                 <td>Shipping Price</td>
-                <td>${shippingPrice}</td>
+                <td>${shippingPrice.toFixed(2)}</td>
               </tr>
 
               <tr>
                 <td>Tax price</td>
-                <td>${taxPrice}</td>
+                <td>${taxPrice.toFixed(2)}</td>
               </tr>
 
               <tr>
                 <td>Total price</td>
                 <td>
-                  <strong>${totalPrice}</strong>
+                  <strong>${totalPrice.toFixed(2)                             }</strong>
                 </td>
               </tr>
             </tbody>
