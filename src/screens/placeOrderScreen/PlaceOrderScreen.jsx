@@ -20,29 +20,32 @@ function PlaceOrderScreen() {
   const { order, success, loading, error } = createdOrders;
 
   const cart = useSelector((state) => state.cart);
-  const {
-    cartItems,
-    shippingAddress,
-    paymentMethod,
-    productsPrice,
-    shippingPrice,
-    taxPrice,
-    totalPrice,
-  } = cart;
+  // const {
+  //   cartItems,
+  //   shippingAddress,
+  //   paymentMethod,
+  //   productsPrice,
+  //   shippingPrice,
+  //   taxPrice,
+  //   totalPrice,
+  // } = cart;
 
   const calculatedDecimal = (number) =>
     Math.round(number * 100 + Number.EPSILON) / 100;
 
-  productsPrice = calculatedDecimal(
-    cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
+  cart.productsPrice = calculatedDecimal(
+    cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  shippingPrice = calculatedDecimal(productsPrice > 100 ? 0 : 10);
+  cart.shippingPrice = calculatedDecimal(cart.productsPrice > 100 ? 0 : 10);
   // productsPrice > 100 ? calculatedDecimal(0) : calculatedDecimal(10);
 
-  taxPrice = calculatedDecimal(Number(0.15 * productsPrice));
+  taxPrice = calculatedDecimal(Number(0.15 * cart.productsPrice));
 
-  totalPrice = Number(productsPrice) + Number(shippingPrice) + Number(taxPrice);
+  totalPrice =
+    Number(cart.productsPrice) +
+    Number(cart.shippingPrice) +
+    Number(cart.taxPrice);
 
   const goShopping = () => {
     navigate("/");
@@ -124,11 +127,11 @@ function PlaceOrderScreen() {
             </h2>
             <p>
               <strong>Address</strong>:{" "}
-              <strong>{shippingAddress.address}</strong>
+              <strong>{cart.shippingAddress.address}</strong>
             </p>
             <p>
               <strong>Postal code</strong>:{" "}
-              <strong>{shippingAddress.postalCode}</strong>
+              <strong>{cart.shippingAddress.postalCode}</strong>
             </p>
           </div>
         </div>
@@ -196,22 +199,22 @@ function PlaceOrderScreen() {
             <tbody>
               <tr>
                 <td>Products price</td>
-                <td>${productsPrice.toFixed(2)}</td>
+                <td>${cart.productsPrice.toFixed(2)}</td>
               </tr>
               <tr>
                 <td>Shipping Price</td>
-                <td>${shippingPrice.toFixed(2)}</td>
+                <td>${cart.shippingPrice.toFixed(2)}</td>
               </tr>
 
               <tr>
                 <td>Tax price</td>
-                <td>${taxPrice.toFixed(2)}</td>
+                <td>${cart.taxPrice.toFixed(2)}</td>
               </tr>
 
               <tr>
                 <td>Total price</td>
                 <td>
-                  <strong>${totalPrice.toFixed(2)                             }</strong>
+                  <strong>${cart.totalPrice.toFixed(2)}</strong>
                 </td>
               </tr>
             </tbody>
