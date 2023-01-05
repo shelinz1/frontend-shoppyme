@@ -156,7 +156,7 @@ function PlaceOrderScreen() {
             </div>
           ) : (
             <>
-              {cartItems.map((item) => (
+              {cart.cartItems.map((item) => (
                 <div className="cartitem" key={item.product}>
                   <div className="cart-product">
                     <div className="product-description">
