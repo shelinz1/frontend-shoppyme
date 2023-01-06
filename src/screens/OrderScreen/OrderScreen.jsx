@@ -67,7 +67,7 @@ function OrderScreen() {
         };
 
         const response = await axios.put(
-          `https://shoppyme-shadrach-api.onrender.com/api/orders/${order._id}/pay`,
+          `${process.env.REACT_URL_PROXY}/api/orders/${order._id}/pay`,
           details,
           config
         );
@@ -102,7 +102,7 @@ function OrderScreen() {
 
       const loadPaypalScript = async () => {
         const { data: clientId } = await axios.get(
-          "https://shoppyme-shadrach-api.onrender.com/api/keys/paypal",
+          `${process.env.REACT_URL_PROXY}/api/keys/paypal`,
           config
         );
 

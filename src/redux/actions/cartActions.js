@@ -10,7 +10,7 @@ import axios from "axios";
 export const addCartItem =
   (productId, quantity) => async (dispatch, getState) => {
     const { data } = await axios.get(
-      `https://shoppyme-shadrach-api.onrender.com/api/products/${productId}`
+      `${process.env.REACT_URL_PROXY}/api/products/${productId}`
     );
 
     dispatch({
