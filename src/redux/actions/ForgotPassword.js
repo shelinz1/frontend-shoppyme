@@ -18,7 +18,7 @@ export const forgotPasswordUpdate = (email) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_URL_PROXY}/api/password/forgotpassword`,
+      `${process.env.REACT_APP_ENDPOINT}/api/password/forgotpassword`,
       {
         email,
       }

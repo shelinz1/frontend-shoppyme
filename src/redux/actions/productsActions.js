@@ -38,7 +38,7 @@ export const productLists =
     });
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_URL_PROXY}/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
+        `${process.env.REACT_APP_ENDPOINT}/api/products?pageNumber=${pageNumber}&keyword=${keyword}`
       );
 
       dispatch({
@@ -61,7 +61,7 @@ export const productDetails = (id) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAIL_REQUEST });
   try {
     const response = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/products/${id}`
+      `${process.env.REACT_APP_ENDPOINT}/api/products/${id}`
     );
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
@@ -96,7 +96,7 @@ export const productDetailsReview =
       };
 
       await axios.post(
-        `${process.env.REACT_URL_PROXY}/api/products/${productId}/review`,
+        `${process.env.REACT_APP_ENDPOINT}/api/products/${productId}/review`,
         review,
         config
       );
@@ -132,7 +132,7 @@ export const productsList =
         },
       };
       const { data } = await axios.get(
-        `${process.env.REACT_URL_PROXY}/api/products/all/products?searchProduct=${searchProduct}`,
+        `${process.env.REACT_APP_ENDPOINT}/api/products/all/products?searchProduct=${searchProduct}`,
         config
       );
 
@@ -167,7 +167,7 @@ export const productDelete = (productId) => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `${process.env.REACT_URL_PROXY}/api/products/${productId}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/products/${productId}`,
       config
     );
 
@@ -203,7 +203,7 @@ export const productAdd =
       };
 
       const { data } = await axios.post(
-        `${process.env.REACT_URL_PROXY}/api/products/add`,
+        `${process.env.REACT_APP_ENDPOINT}/api/products/add`,
         { name, price, countInStock, category, description, image },
         config
       );
@@ -228,7 +228,7 @@ export const productEdit = (productId) => async (dispatch, getState) => {
     dispatch({ type: ADMIN_PRODUCT_EDIT_REQUEST });
 
     const { data } = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/products/${productId}`
+      `${process.env.REACT_APP_ENDPOINT}/api/products/${productId}`
     );
 
     dispatch({
@@ -262,7 +262,7 @@ export const productUpdate = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `${process.env.REACT_URL_PROXY}/api/products/${product._id}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/products/${product._id}`,
       product,
       config
     );
@@ -302,7 +302,7 @@ export const productDetail = (productId) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/products/${productId}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/products/${productId}`,
       config
     );
 

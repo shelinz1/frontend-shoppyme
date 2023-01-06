@@ -13,7 +13,7 @@ export const resetInfo = (token) => async (dispatch) => {
 
   try {
     const { data } = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/password/reset/${token}`
+      `${process.env.REACT_APP_ENDPOINT}/api/password/reset/${token}`
     );
     dispatch({ type: GET_REQUEST_PASSWORD_SUCCESS, payload: data });
   } catch (error) {
@@ -32,7 +32,7 @@ export const updatePassword = (token, password) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_URL_PROXY}/api/password/reset/${token}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/password/reset/${token}`,
       {
         password,
       }

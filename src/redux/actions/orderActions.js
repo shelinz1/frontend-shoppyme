@@ -41,7 +41,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      `${process.env.REACT_URL_PROXY}/api/orders`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders`,
       order,
       config
     );
@@ -77,7 +77,7 @@ export const orderDetails = (orderId) => async (dispatch, getState) => {
     };
 
     const response = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/orders/${orderId}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders/${orderId}`,
       config
     );
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: response.data });
@@ -110,7 +110,7 @@ export const myOrderList = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/orders/me`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders/me`,
       config
     );
 
@@ -143,7 +143,7 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `${process.env.REACT_URL_PROXY}/api/orders/${id}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders/${id}`,
       config
     );
 
@@ -177,7 +177,7 @@ export const ordersList =
         },
       };
       const { data } = await axios.get(
-        `${process.env.REACT_URL_PROXY}/api/orders/all/orders/?searchorder=${searchorder}`,
+        `${process.env.REACT_APP_ENDPOINT}/api/orders/all/orders/?searchorder=${searchorder}`,
         config
       );
 
@@ -213,7 +213,7 @@ export const orderDetail = (orderId) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/orders/${orderId}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders/${orderId}`,
       config
     );
     console.log(data);
@@ -246,7 +246,7 @@ export const orderDeliver = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `${process.env.REACT_URL_PROXY}/api/orders/${order._id}/deliver`,
+      `${process.env.REACT_APP_ENDPOINT}/api/orders/${order._id}/deliver`,
       {},
       config
     );

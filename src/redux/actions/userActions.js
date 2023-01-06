@@ -24,7 +24,7 @@ export const userRegister = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_URL_PROXY}/api/users/register`,
+      `${process.env.REACT_APP_ENDPOINT}/api/users/register`,
       {
         name,
         email,
@@ -51,7 +51,7 @@ export const userLogin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_URL_PROXY}/api/users/login`,
+      `${process.env.REACT_APP_ENDPOINT}/api/users/login`,
       { email, password }
     );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -94,7 +94,7 @@ export const userProfileDetails = (userId) => async (dispatch, getState) => {
     };
 
     const response = await axios.get(
-      `${process.env.REACT_URL_PROXY}/api/users/${userId}`,
+      `${process.env.REACT_APP_ENDPOINT}/api/users/${userId}`,
       config
     );
     dispatch({ type: USER_PROFILE_SUCCESS, payload: response.data });
@@ -133,7 +133,7 @@ export const userProfileUpdate = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `${process.env.REACT_URL_PROXY}/api/users/profile`,
+      `${process.env.REACT_APP_ENDPOINT}/api/users/profile`,
       user,
       config
     );
@@ -175,7 +175,7 @@ export const usersList =
       };
 
       const { data } = await axios.get(
-        `${process.env.REACT_URL_PROXY}/api/users/?searchuser=${searchuser}`,
+        `${process.env.REACT_APP_ENDPOINT}/api/users/?searchuser=${searchuser}`,
         config
       );
       dispatch({ type: ADMIN_USERS_LIST_SUCCESS, payload: data });
