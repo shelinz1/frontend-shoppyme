@@ -31,7 +31,7 @@ function OrderHistory() {
   useEffect(() => {
     dispatch(myOrderList());
     if (deleteSuccess) {
-      toast.success(`order has been deleted!!!`, ToastObjects);
+      toast.success(`Order has been deleted!.`, ToastObjects);
 
       dispatch({ type: ORDER_DELETE_RESET });
     }

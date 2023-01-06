@@ -46,7 +46,7 @@ function ProductScreen() {
 
   useEffect(() => {
     if (reviewSuccess) {
-      toast.success("Your review has been submitted", ToastObjects);
+      toast.success("Your review has been submitted.", ToastObjects);
       setRating(0);
       setComment("");
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });

@@ -33,7 +33,7 @@ function AddMainProduct() {
 
   useEffect(() => {
     if (product) {
-      toast.success("product Added", ToastObjects);
+      toast.success("Product added.", ToastObjects);
       dispatch({ type: ADMIN_PRODUCT_CREATE_RESET });
       setName("");
       setPrice(0);
