@@ -18,17 +18,9 @@ function PlaceOrderScreen() {
 
   const createdOrders = useSelector((state) => state.createdOrders);
   const { order, success, loading, error } = createdOrders;
+  console.log(order)
 
   const cart = useSelector((state) => state.cart);
-  // const {
-  //   cartItems,
-  //   shippingAddress,
-  //   paymentMethod,
-  //   productsPrice,
-  //   shippingPrice,
-  //   taxPrice,
-  //   totalPrice,
-  // } = cart;
 
   const calculatedDecimal = (number) =>
     Math.round(number * 100 + Number.EPSILON) / 100;
@@ -38,7 +30,6 @@ function PlaceOrderScreen() {
   );
 
   cart.shippingPrice = calculatedDecimal(cart.productsPrice > 100 ? 0 : 10);
-  // productsPrice > 100 ? calculatedDecimal(0) : calculatedDecimal(10);
 
   cart.taxPrice = calculatedDecimal(Number(0.15 * cart.productsPrice));
 
@@ -66,7 +57,7 @@ function PlaceOrderScreen() {
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         productsPrice: cart.productsPrice,
-        shippingPrice: cart.shippingAddress,
+        shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       })
