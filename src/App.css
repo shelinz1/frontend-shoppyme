@@ -126,7 +126,7 @@
 @media (max-width: 1000px) {
   .orderInfo {
     text-align: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .orderInfo > div {
     margin-bottom: 1rem;
@@ -136,7 +136,7 @@
 @media (max-width: 800px) {
   .orderInfo {
     text-align: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .orderInfo > div {
     margin-bottom: 1rem;
