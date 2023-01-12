@@ -14,6 +14,8 @@ import moment from "moment";
 import SearchProducts from "../../components/SearchProducts";
 import { toast } from "react-toastify";
 import Toast from "../../components/Toast";
+import Footer from "../../components/Footer";
+import Contact from "../../components/Contact";
 
 const ToastObjects = {
   pauseOnFocusLoss: false,
@@ -291,6 +293,9 @@ function ProductScreen() {
           </div>
         </>
       )}
+
+      <Footer />
+      <Contact />
     </>
   );
 }

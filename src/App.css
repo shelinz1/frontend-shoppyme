@@ -131,13 +131,6 @@
   .orderInfo > div {
     margin-bottom: 1rem;
   }
-  .footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 800px) {
@@ -148,13 +141,7 @@
   .orderInfo > div {
     margin-bottom: 1rem;
   }
-  .footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .contact {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 500px) {
@@ -167,11 +154,11 @@
   }
 
   .footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
 
   .contact {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
 }
 

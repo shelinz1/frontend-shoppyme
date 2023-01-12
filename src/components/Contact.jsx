@@ -38,7 +38,7 @@ function Contact() {
       <div>
         Reach me:{" "}
         <p>
-          <a href={`mailto:itodoshadrach@gmail.com`}>itodoshadrach@gmail.com</a>
+          <a href={`mailto:itodoshadrach@gmail.com`} style={{color:"white"}}>itodoshadrach@gmail.com</a>
         </p>
       </div>
     </div>

@@ -1,10 +1,9 @@
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   grid-auto-rows: minmax(250px, auto);
-  /* margin: 0 auto; */
-  /* padding: 2rem 0; */
+ 
 }
 
 .container .cardy {
@@ -19,6 +18,11 @@
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 10px 25px rgba(148, 32, 32, 0.02);
   backdrop-filter: blur(15px);
+}
+
+.imageBox img {
+  width: 15rem;
+  height: 10rem;
 }
 
 .container .cardy .imageBox {
@@ -82,13 +86,13 @@
 
 @media (max-width: 1000px) {
   .products {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 800px) {
   .products {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .container .cardy {
     position: relative;
