@@ -54,6 +54,7 @@ function ProductScreen() {
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
     dispatch(productDetails(id));
+    window.scrollTo({ behavior: "smooth", top: "0px" });
   }, [dispatch, id, reviewSuccess]);
 
   const addTocart = () => {
