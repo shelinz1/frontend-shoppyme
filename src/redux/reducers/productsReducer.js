@@ -1,3 +1,4 @@
+import { DEFAULT_KEY, generateCacheTTL } from "redux-cache";
 import {
   ADMIN_PRODUCT_CREATE_FAILURE,
   ADMIN_PRODUCT_CREATE_REQUEST,
@@ -32,9 +33,14 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../constants/productsTypes";
 
+const initialState = {
+  [DEFAULT_KEY]: null,
+  // ...other keys
+};
+
 //PRODUCTS LIST
 export const productListsReducer = (
-  state = { products: [], loading: false },
+  state = { initialState, products: [], loading: false },
   { type, payload }
 ) => {
   switch (type) {
@@ -43,6 +49,7 @@ export const productListsReducer = (
     case PRODUCT_LIST_SUCCESS:
       return {
         loading: false,
+        [DEFAULT_KEY]: generateCacheTTL(),
         page: payload.page,
         pages: payload.pages,
         products: payload.products,
@@ -164,10 +171,7 @@ export const adminProductAddReducer = (state = {}, { type, payload }) => {
 };
 
 //EDIT PRODUCT
-export const adminProductEditReducer = (
-  state = { product: {  } },
-  action
-) => {
+export const adminProductEditReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case ADMIN_PRODUCT_EDIT_REQUEST:
       return { ...state, loading: true };
@@ -201,7 +205,7 @@ export const adminProductUpdateReducer = (
 
 //DETAIL PRODUCT
 export const adminProductDetailReducer = (
-  state = { loading: false, product: { } },
+  state = { loading: false, product: {} },
   { type, payload }
 ) => {
   switch (type) {

@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import { cacheEnhancer } from "redux-cache";
+
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { cartReducer } from "./reducers/cartReducer";
@@ -24,7 +26,10 @@ import {
   adminProductUpdateReducer,
   adminProductDetailReducer,
 } from "./reducers/productsReducer";
-import { resetPasswordReducer, updatePasswordReducer } from "./reducers/resetPasswordReducer";
+import {
+  resetPasswordReducer,
+  updatePasswordReducer,
+} from "./reducers/resetPasswordReducer";
 import {
   adminUserListReducer,
   userLoginReducer,
@@ -81,12 +86,18 @@ const reducer = combineReducers({
   deliverOrder: adminOrderDeliveredReducer,
 });
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// const store = createStore(
+//   reducer,
+//   initialState,
+//   composeEnhancer(applyMiddleware(thunk))
+// );
 
 const store = createStore(
   reducer,
   initialState,
-  composeEnhancer(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk), cacheEnhancer())
 );
 
 export default store;

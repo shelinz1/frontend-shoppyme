@@ -1,4 +1,5 @@
 import axios from "axios";
+import { checkCacheValid } from "redux-cache";
 import {
   ADMIN_PRODUCT_CREATE_FAILURE,
   ADMIN_PRODUCT_CREATE_REQUEST,
@@ -32,7 +33,11 @@ import {
 //PRODUCT LIST
 export const productLists =
   (keyword = " ", pageNumber = " ") =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
+    const isCacheValid = checkCacheValid(getState, "products");
+    if (isCacheValid) {
+      return null;
+    }
     dispatch({
       type: PRODUCT_LIST_REQUEST,
     });
