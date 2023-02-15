@@ -33,6 +33,7 @@ function ProductDetailsMain() {
                 <img className="" src={product.image} alt={product.image} />
               </div>
             </div>
+
             <div className="col-sm-6 bg-secondary text-white text-center pt-3 product-info-admin mt-5">
               <div>
                 <p>

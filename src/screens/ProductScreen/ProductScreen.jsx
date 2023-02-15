@@ -143,16 +143,21 @@ function ProductScreen() {
                       </div>
                     </>
                   )}
-                  <div
-                    className="ui vertical animated button secondary"
-                    tabIndex="0"
-                    onClick={addTocart}
-                  >
-                    <div className="hidden content gfa-2x">
-                      <i className="fa-solid fa-cart-plus"></i>
-                    </div>
-                    <div className="visible content">Add to Cart</div>
-                  </div>
+
+                  {product.countInStock > 0 && (
+                    <>
+                      <div
+                        className="ui vertical animated button secondary"
+                        tabIndex="0"
+                        onClick={addTocart}
+                      >
+                        <div className="hidden content gfa-2x">
+                          <i className="fa-solid fa-cart-plus"></i>
+                        </div>
+                        <div className="visible content">Add to Cart</div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
