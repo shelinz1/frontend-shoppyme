@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Loader from "../../components/Loader";
 import Message from "../../components/ErrorMessage";
 import { useSelector, useDispatch } from "react-redux";
