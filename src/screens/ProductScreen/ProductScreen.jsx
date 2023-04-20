@@ -95,7 +95,6 @@ function ProductScreen() {
                   <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
                     {product.name}
                   </span>
-
                   <h2>
                     <span
                       className="ui yellow tag label"
@@ -104,15 +103,12 @@ function ProductScreen() {
                       ${product.price}
                     </span>
                   </h2>
-
                   <h3 className="ui brown blocker header text-capitalize">
                     {product.category}
                   </h3>
-
                   <p style={{ fontSize: "1rem", fontWeight: "bold" }}>
                     {product.description}
                   </p>
-
                   <p>
                     {product.countInStock > 0 ? (
                       <span className="active">In stock</span>
@@ -120,7 +116,6 @@ function ProductScreen() {
                       <span className="passive">Unavailable</span>
                     )}
                   </p>
-
                   {product.countInStock > 0 && (
                     <>
                       <div style={{ margin: "1.2rem" }}>
@@ -143,7 +138,6 @@ function ProductScreen() {
                       </div>
                     </>
                   )}
-
                   {product.countInStock > 0 && (
                     <>
                       <div

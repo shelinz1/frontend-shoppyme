@@ -19,10 +19,18 @@ function HomeScreen() {
   const productsList = useSelector((state) => state.productsList);
   const { loading, error, products, pages, page } = productsList;
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   dispatch(productLists(keyword, pagenumber));
+  //   window.scrollTo({ behavior: "smooth", top: "0px" });
+  // }, [dispatch, keyword, pagenumber]);
+
+  const fetchProduct = useCallback(async () => {
     dispatch(productLists(keyword, pagenumber));
-    window.scrollTo({ behavior: "smooth", top: "0px" });
   }, [dispatch, keyword, pagenumber]);
+
+  useEffect(() => {
+    fetchProduct();
+  }, [fetchProduct, dispatch, keyword, pagenumber]);
 
   return (
     <div>
