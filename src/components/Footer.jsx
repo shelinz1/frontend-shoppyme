@@ -21,7 +21,7 @@ const Footer = () => {
           <p style={{ fontSize: "2rem", color: "gray" }}>
             <i className="fas fa-location"></i>
           </p>
-          <p style={{ fontWeight: "bold", fontSize: "1rem" }}>Headquaters</p>
+          
           <p style={{ fontWeight: "bold", fontSize: "1rem" }}>
             Akure,Ondo state Nigeria
           </p>
